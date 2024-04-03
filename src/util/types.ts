@@ -22,3 +22,15 @@ export type CategoryObjType = {
   id: number;
   name: string;
 };
+export type LoginObjType = {
+  email: string;
+  password: string;
+};
+export type UserObjType = {
+  name: string;
+  email: string;
+  password: string;
+  avatar_url: string;
+  created_at: string;
+  id: number;
+};

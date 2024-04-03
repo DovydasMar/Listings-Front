@@ -66,7 +66,7 @@ export default function HomePage() {
       </div>
       <ul className='grid grid-cols-3 col-span-3'>
         {adArr.map((item: AdsObjType) => (
-          <li>
+          <li key={item.id}>
             <SingleAd key={item.id} item={item} />
           </li>
         ))}
