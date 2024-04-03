@@ -12,7 +12,7 @@ import SingleTownPage from './pages/SingleTownPage';
 
 function App() {
   return (
-    <>
+    <div>
       <Header />
       <Routes>
         <Route path='/' element={<HomePage />} />
@@ -24,7 +24,7 @@ function App() {
         <Route path='/towns/:id' element={<SingleTownPage />} />
         <Route path='*' element={<UnknownPage />} />
       </Routes>
-    </>
+    </div>
   );
 }
 
