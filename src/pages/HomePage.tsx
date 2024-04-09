@@ -9,9 +9,22 @@ export default function HomePage() {
   const [adArr, setAdArr] = useState([]);
   const [townArr, setTownArr] = useState([]);
   const [catsArr, setCatsArr] = useState([]);
+  const [townVal, setTownVal] = useState('');
+  const [categoryVal, setCategoryVal] = useState('');
+  console.log('categoryVal ===', categoryVal);
+  console.log('townVal ===', townVal);
   console.log('adArr ===', adArr);
   console.log('townArr ===', townArr);
   console.log('catsArr ===', catsArr);
+
+  let filteredAds;
+  if (townVal) {
+    filteredAds = adArr.filter((ad: AdsObjType) => ad.town === townVal);
+  } else if (categoryVal) {
+    filteredAds = adArr.filter((ad: AdsObjType) => ad.category === categoryVal);
+  } else {
+    filteredAds = adArr;
+  }
 
   useEffect(() => {
     getAds(adsUrl);
@@ -51,9 +64,14 @@ export default function HomePage() {
   }
   return (
     <div className='grid sm:grid-cols-2 md:grid-cols-4 container gap-5 mt-5'>
-      <FilterBox towns={townArr} categories={catsArr} />
+      <FilterBox
+        towns={townArr}
+        categories={catsArr}
+        onClickTown={setTownVal}
+        onClickCategory={setCategoryVal}
+      />
       <ul className='grid gap-2 sm:grid-cols-2 md:grid-cols-3 md:col-span-3'>
-        {adArr.map((item: AdsObjType) => (
+        {filteredAds.map((item: AdsObjType) => (
           <li key={item.id}>
             <SingleAd key={item.id} item={item} />
           </li>

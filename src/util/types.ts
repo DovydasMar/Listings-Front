@@ -11,6 +11,11 @@ export type AdsObjType = {
   category_id: number;
   town: string;
   category: string;
+  pic1: string;
+  pic2: string;
+  pic3: string;
+  pic4: string;
+  pic5: string;
 };
 export type TownObjType = {
   id: number;
@@ -46,4 +51,14 @@ export type UserObjType = {
   created_at: string;
   id: number;
 };
-export type adObjtoBackType = Omit<AdsObjType, 'id' | 'town' | 'category'>;
+export type adObjtoBackType = {
+  title: string;
+  main_img_url: string;
+  description: string;
+  price: number;
+  phone: number;
+  type: string;
+  town_id: number;
+  user_id: number;
+  category_id: number;
+};

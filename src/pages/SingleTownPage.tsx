@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { townAdsUrl, townUrl } from '../config';
 import { useParams } from 'react-router-dom';
 import { AdsObjType, TownObjType } from '../util/types';
-import TownSwiper from '../components/UI/TownSwiper';
+import TownSwiper from '../components/UI/SwiperItem';
 import SingleAd from '../components/UI/SingleAd';
 
 export default function SingleTownPage() {
@@ -44,6 +44,7 @@ export default function SingleTownPage() {
       <div className='grid mt-5 gap-5 min-[320px]:grid-cols-1 min-[768px]:grid-cols-2'>
         <div className='w-full'>
           <TownSwiper
+            alt={town?.name}
             images={[town?.img_url || '', town?.img_1 || '', town?.img_2 || '', town?.img_3 || '']}
           />
         </div>

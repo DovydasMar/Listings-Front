@@ -10,9 +10,11 @@ import { useState } from 'react';
 
 type SinglePageSwiperProps = {
   images: string[];
+  withThumbs?: boolean;
+  alt: string | undefined;
 };
 
-export default function TownSwiper({ images }: SinglePageSwiperProps) {
+export default function SwiperItem({ images, withThumbs, alt }: SinglePageSwiperProps) {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
   return (
@@ -38,27 +40,29 @@ export default function TownSwiper({ images }: SinglePageSwiperProps) {
           .filter((imgUrl) => imgUrl)
           .map((imgUrl, i) => (
             <SwiperSlide key={i}>
-              <img className='' src={imgUrl} alt={'town'} />
+              <img className='object-cover w-full h-64' src={imgUrl} alt={alt} />
             </SwiperSlide>
           ))}
       </Swiper>
-      {/* <Swiper
-        onSwiper={setThumbsSwiper}
-        spaceBetween={10}
-        slidesPerView={4}
-        freeMode={false}
-        watchSlidesProgress={true}
-        modules={[FreeMode, Navigation, Thumbs]}
-        className='swiperThumbs'
-      >
-        {images
-          .filter((imgUrl) => imgUrl)
-          .map((imgUrl, i) => (
-            <SwiperSlide key={i}>
-              <img className='' src={imgUrl} alt={'town'} />
-            </SwiperSlide>
-          ))}
-      </Swiper> */}
+      {withThumbs && (
+        <Swiper
+          onSwiper={setThumbsSwiper}
+          spaceBetween={10}
+          slidesPerView={4}
+          freeMode={false}
+          watchSlidesProgress={true}
+          modules={[FreeMode, Navigation, Thumbs]}
+          className='swiperThumbs'
+        >
+          {images
+            .filter((imgUrl) => imgUrl)
+            .map((imgUrl, i) => (
+              <SwiperSlide key={i}>
+                <img className='' src={imgUrl} alt={'town'} />
+              </SwiperSlide>
+            ))}
+        </Swiper>
+      )}
     </>
   );
 }

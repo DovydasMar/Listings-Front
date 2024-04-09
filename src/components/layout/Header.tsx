@@ -67,10 +67,17 @@ export default function Header() {
             <i className='bi bi-list text-black'></i>
           )}
         </button>
-
         {opened && (
-          <ul className='grid gap-4 absolute bg-red-300 top-20 right-0 z-10 p-10'>
-            <li>
+          <div
+            className='absolute z-10 top-0 bottom-0 left-0 right-0 bg-slate-600 opacity-15'
+            onClick={() => setOpened(!opened)}
+          ></div>
+        )}
+        {opened && (
+          <ul
+            className={`flex flex-col gap-5 absolute bg-slate-300 top-20 h-full md:w-1/3 sm:w-1/2 right-0 z-20 p-10`}
+          >
+            <li className='h-5' onClick={() => setOpened(!opened)}>
               <NavLink to={'/'}>Pagrindinis</NavLink>
             </li>
             <li>
