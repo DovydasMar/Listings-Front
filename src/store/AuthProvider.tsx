@@ -5,6 +5,7 @@ const AuthContext = createContext({
   logout: () => {},
   isUserLoggedIn: false,
   email: '',
+  userId: 0,
 });
 
 type AuthProviderProps = {
@@ -39,6 +40,8 @@ export default function AuthProvider({ children }: AuthProviderProps) {
     email: email,
     userId: userId,
   };
+  console.log('userId ===', userId);
+  console.log('email ===', email);
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
 

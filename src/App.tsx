@@ -10,20 +10,23 @@ import AddNewAdPage from './pages/AddNewAdPage';
 import TownsPage from './pages/TownsPage';
 import SingleTownPage from './pages/SingleTownPage';
 import { useAuthCtx } from './store/AuthProvider';
+import UserPage from './pages/UserPage';
 
 function App() {
   const { isUserLoggedIn } = useAuthCtx();
+  console.log('isUserLoggedIn ===', isUserLoggedIn);
   return (
     <div>
       <Header />
       <Routes>
         <Route path='/' element={<HomePage />} />
-        <Route path='/skelbimas/sukurti' element={<AddNewAdPage />} />
-        <Route path='/skelbimas/:id' element={<SingleAdPage />} />
+        <Route path='/listing/add' element={<AddNewAdPage />} />
+        <Route path='/listing/:ad_id' element={<SingleAdPage />} />
         <Route path='/login' element={!isUserLoggedIn ? <Login /> : <Navigate to={'/'} />} />
         <Route path='/register' element={isUserLoggedIn ? <Navigate to={'/'} /> : <Register />} />
         <Route path='/towns' element={<TownsPage />} />
-        <Route path='/towns/:id' element={<SingleTownPage />} />
+        <Route path='/towns/:town_id' element={<SingleTownPage />} />
+        <Route path='/user' element={isUserLoggedIn ? <UserPage /> : <Navigate to={'/'} />} />
         <Route path='*' element={<UnknownPage />} />
       </Routes>
     </div>

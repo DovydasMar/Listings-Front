@@ -3,3 +3,24 @@
   text-underline-offset: 0.2em;
   font-weight: 600;
 }
+.is-invalid {
+  background-color: rgb(250, 158, 158);
+}
+.error {
+  color: red;
+  font-size: 0.8em;
+}
+.header-sizing {
+  display: flex !important;
+}
+.small-header-sizing {
+  display: none !important;
+}
+@media screen and (max-width: 767px) {
+  .header-sizing {
+    display: none !important;
+  }
+  .small-header-sizing {
+    display: flex !important;
+  }
+}

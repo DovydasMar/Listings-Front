@@ -1,2 +1,9 @@
 export const baseBeUrl = 'http://localhost:3000';
 export const LoginUrl = `${baseBeUrl}/auth/login`;
+export const catsUrl = `${baseBeUrl}/api/categories`;
+export const regUrl = `${baseBeUrl}/auth/register`;
+export const adsUrl = `${baseBeUrl}/api/ads`;
+export const townUrl = `${baseBeUrl}/api/towns`;
+export const townAdsUrl = `${baseBeUrl}/api/ads/town`;
+export const userUrl = `${baseBeUrl}/api/users`;
+export const updateUrl = `${baseBeUrl}/auth/update`;
