@@ -11,6 +11,7 @@ export type AdsObjType = {
   category_id: number;
   town: string;
   category: string;
+  created_at: Date;
   pic1: string;
   pic2: string;
   pic3: string;
@@ -61,4 +62,17 @@ export type adObjtoBackType = {
   town_id: number;
   user_id: number;
   category_id: number;
+};
+export type UpdateUserInfoType = {
+  email: string;
+  name: string;
+  userId: number;
+};
+export type UpdateUserObjType = {
+  name?: string;
+  email: string;
+  currentPassword: string;
+  password: string;
+  passwordConfirm: string;
+  avatar_url?: string;
 };

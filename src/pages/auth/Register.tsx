@@ -44,19 +44,34 @@ export default function Register() {
   }
   return (
     <div className='container'>
-      <h3 className='text-2xl'>Create a new account</h3>
+      <h3 className='text-2xl'>Sukurti naują vartotoją</h3>
       <form noValidate onSubmit={formik.handleSubmit} className='grid grid-cols-2 gap-4'>
-        <InputEl formik={formik} id='name' placeholder='Enter name' />
-        <InputEl formik={formik} id='email' placeholder='Enter email' />
-        <InputEl formik={formik} id='password' type='password' placeholder='Enter passwrod' />
+        <InputEl name='Jūsų vardas' formik={formik} id='name' placeholder='vardas' />
+        <InputEl name='Jūsų Email' formik={formik} id='email' placeholder='jane@doe.lt' />
         <InputEl
+          name='Įrašykite slaptažodį'
+          formik={formik}
+          id='password'
+          type='password'
+          placeholder='slaptažodis'
+        />
+        <InputEl
+          name='Pakartokite slaptažodį'
           formik={formik}
           id='passwordConfirm'
           type='password'
-          placeholder='please confirm password'
+          placeholder='patvirtinkite slaptažodį'
         />
-        <InputEl formik={formik} id='avatar_url' placeholder='pick your photo' />
-        <Button type='submit'>Register</Button>
+        <InputEl
+          name='Įveskite savo nuotraukos Url'
+          formik={formik}
+          id='avatar_url'
+          placeholder='Profilio nuotraukos Url'
+        />
+        <div></div>
+        <Button className='col-span-2' type='submit'>
+          Registruotis
+        </Button>
       </form>
     </div>
   );

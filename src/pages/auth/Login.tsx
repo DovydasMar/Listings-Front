@@ -38,12 +38,26 @@ export default function Login() {
   }
   return (
     <div className='container'>
-      <h2 className='text-2xl mt-2'>Login here</h2>
-      <form noValidate onSubmit={formik.handleSubmit} className={'flex flex-col mt-2 gap-3'}>
-        <InputEl type='email' formik={formik} id={'email'} placeholder='Enter email' />
-        <InputEl type='password' formik={formik} id={'password'} placeholder='Enter passwrod' />
+      <h2 className='text-2xl mt-2'>Prisijungti</h2>
+      <form noValidate onSubmit={formik.handleSubmit} className={'grid grid-cols-2 mt-2 gap-3 '}>
+        <InputEl
+          name='Jūsų el. paštas'
+          type='email'
+          formik={formik}
+          id={'email'}
+          placeholder='jane@email.lt'
+        />
+        <InputEl
+          name='Jūsų slaptažodis'
+          type='password'
+          formik={formik}
+          id={'password'}
+          placeholder='įveskite slaptažodį'
+        />
         {error && <span className='bg-red-300 block rounded-1 px-3 py-1 '>{error}</span>}
-        <Button type='submit'>Login</Button>
+        <Button className='col-span-2' type='submit'>
+          prisijungiti
+        </Button>
       </form>
     </div>
   );

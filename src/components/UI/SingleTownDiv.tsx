@@ -8,7 +8,7 @@ type SingleTownProps = {
 export default function SingleTownDiv({ item }: SingleTownProps) {
   return (
     <div className='border border-black rounded-md p-4'>
-      <img className='rounded-md object-cover w-full' src={item.img_url} alt={item.name} />
+      <img className='rounded-md object-cover w-full h-56' src={item.img_url} alt={item.name} />
       <h4 className='text-xl font-semibold'>{item.name}</h4>
       <p>
         Skelbimu kiekis: <span className='font-bold'>{item.kiekis}</span>

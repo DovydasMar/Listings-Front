@@ -11,11 +11,12 @@ export default function HomePage() {
   const [catsArr, setCatsArr] = useState([]);
   const [townVal, setTownVal] = useState('');
   const [categoryVal, setCategoryVal] = useState('');
-  console.log('categoryVal ===', categoryVal);
-  console.log('townVal ===', townVal);
-  console.log('adArr ===', adArr);
-  console.log('townArr ===', townArr);
-  console.log('catsArr ===', catsArr);
+  const [needToReset, setNeedToReset] = useState(false);
+  //  console.log('categoryVal ===', categoryVal);
+  //  console.log('townVal ===', townVal);
+  //  console.log('adArr ===', adArr);
+  //  console.log('townArr ===', townArr);
+  // console.log('catsArr ===', catsArr);
 
   let filteredAds;
   if (townVal) {
@@ -30,7 +31,7 @@ export default function HomePage() {
     getAds(adsUrl);
     getTowns(townUrl);
     getCats(catsUrl);
-  }, []);
+  }, [needToReset]);
 
   function getAds(url: string) {
     axios
@@ -63,20 +64,31 @@ export default function HomePage() {
       });
   }
   return (
-    <div className='grid sm:grid-cols-2 md:grid-cols-4 container gap-5 mt-5'>
-      <FilterBox
-        towns={townArr}
-        categories={catsArr}
-        onClickTown={setTownVal}
-        onClickCategory={setCategoryVal}
-      />
-      <ul className='grid gap-2 sm:grid-cols-2 md:grid-cols-3 md:col-span-3'>
-        {filteredAds.map((item: AdsObjType) => (
-          <li key={item.id}>
-            <SingleAd key={item.id} item={item} />
-          </li>
-        ))}
-      </ul>
+    <div className='container'>
+      <h1 className='text-3xl mt-4 text-center font-bold'>Sveiki atvykę į Skelbimų pasaulį</h1>
+      <div className='grid mb-4 sm:grid-cols-3 md:grid-cols-4  gap-5 mt-5'>
+        <FilterBox
+          towns={townArr}
+          categories={catsArr}
+          onClickTown={setTownVal}
+          onClickCategory={setCategoryVal}
+          townVal={townVal}
+          categoryVal={categoryVal}
+        />
+        <ul className='grid gap-2 sm:grid-cols-2 sm:col-span-2 md:grid-cols-3 md:col-span-3'>
+          {filteredAds.map((item: AdsObjType) => (
+            <li key={item.id}>
+              <SingleAd
+                reset={() => {
+                  setNeedToReset(!needToReset);
+                }}
+                key={item.id}
+                item={item}
+              />
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }

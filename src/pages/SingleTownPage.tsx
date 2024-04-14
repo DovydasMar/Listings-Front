@@ -40,16 +40,20 @@ export default function SingleTownPage() {
       });
   }
   return (
-    <div className='container'>
+    <div className='container mb-4'>
       <div className='grid mt-5 gap-5 min-[320px]:grid-cols-1 min-[768px]:grid-cols-2'>
-        <div className='w-full'>
+        <div className='w-full p-'>
           <TownSwiper
             alt={town?.name}
             images={[town?.img_url || '', town?.img_1 || '', town?.img_2 || '', town?.img_3 || '']}
           />
+          <h2 className='text-2xl font-bold'>{town?.name}</h2>
+          <p>{town?.area} Km²</p>
+          <p>{town?.population} gyventojų</p>
+          <p>{town?.description}</p>
         </div>
         <div>
-          <ul className='grid grid-cols-3 gap-2'>
+          <ul className='grid lg:grid-cols-3 grid-cols-1 gap-2'>
             {adsArr.map((ad: AdsObjType) => (
               <li key={ad.id}>
                 <SingleAd item={ad} />

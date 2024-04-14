@@ -40,7 +40,7 @@ export default function SwiperItem({ images, withThumbs, alt }: SinglePageSwiper
           .filter((imgUrl) => imgUrl)
           .map((imgUrl, i) => (
             <SwiperSlide key={i}>
-              <img className='object-cover w-full h-64' src={imgUrl} alt={alt} />
+              <img className='object-cover w-full h-80' src={imgUrl} alt={alt} />
             </SwiperSlide>
           ))}
       </Swiper>

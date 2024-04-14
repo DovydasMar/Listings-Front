@@ -7,10 +7,10 @@ export default function Header() {
   const [opened, setOpened] = useState(false);
 
   return (
-    <header className='h-20 bg-slate-300'>
-      <div className='flex h-full justify-between items-center container header-sizing'>
+    <header className='h-20 bg-[#37514D]'>
+      <div className='flex h-full justify-between items-center container header-sizing text-[#EEE6DE]'>
         <Link to={'/'}>
-          <h6 className='text-2xl'>logo</h6>
+          <img className='w-20' src='/img/logotipas.png' alt='skelbimų pasaulis' />
         </Link>
         {email ? <h5 className='text-xl'>{email}</h5> : ''}
 
@@ -24,31 +24,31 @@ export default function Header() {
 
           {isUserLoggedIn && (
             <li>
-              <NavLink to={'/listing/add'}>prideti skelbima</NavLink>
+              <NavLink to={'/listing/add'}>Prideti skelbima</NavLink>
             </li>
           )}
 
           {!isUserLoggedIn && (
             <li>
-              <NavLink to={'/login'}>prisijungti</NavLink>
+              <NavLink to={'/login'}>Prisijungti</NavLink>
             </li>
           )}
           {!isUserLoggedIn && (
             <li>
-              <NavLink to={'/register'}>registruotis</NavLink>
+              <NavLink to={'/register'}>Registruotis</NavLink>
             </li>
           )}
 
           {isUserLoggedIn ? (
             <li>
-              <NavLink to={'/user'}>mano paskyra</NavLink>
+              <NavLink to={'/user'}>Mano paskyra</NavLink>
             </li>
           ) : (
             ''
           )}
           {isUserLoggedIn ? (
             <li>
-              <button onClick={logout}>atsijungti</button>
+              <button onClick={logout}>Atsijungti</button>
             </li>
           ) : (
             ''
@@ -57,60 +57,60 @@ export default function Header() {
       </div>
       <div className='h-full justify-between items-center container small-header-sizing'>
         <Link to={'/'}>
-          <h6 className='text-2xl'>logo</h6>
+          <h6 className='text-2xl text-[#EEE6DE]'>logo</h6>
         </Link>
-        {email ? <h5 className='text-xl'>{email}</h5> : ''}
+        {email ? <h5 className='text-xl text-[#EEE6DE]'>{email}</h5> : ''}
         <button onClick={() => setOpened(!opened)}>
           {opened ? (
-            <i className='bi bi-x-lg text-black'></i>
+            <i className='bi bi-x-lg text-[#EEE6DE]'></i>
           ) : (
-            <i className='bi bi-list text-black'></i>
+            <i className='bi bi-list text-[#EEE6DE]'></i>
           )}
         </button>
         {opened && (
           <div
-            className='absolute z-10 top-0 bottom-0 left-0 right-0 bg-slate-600 opacity-15'
+            className='absolute z-10 top-0 bottom-0 left-0 right-0 text-[#EEE6DE] opacity-15'
             onClick={() => setOpened(!opened)}
           ></div>
         )}
         {opened && (
           <ul
-            className={`flex flex-col gap-5 absolute bg-slate-300 top-20 h-full md:w-1/3 sm:w-1/2 right-0 z-20 p-10`}
+            className={`flex flex-col gap-5 absolute bg-[#37514D] text-[#EEE6DE] top-20 h-full md:w-1/3 sm:w-1/2 right-0 z-20 p-10`}
           >
             <li className='h-5' onClick={() => setOpened(!opened)}>
               <NavLink to={'/'}>Pagrindinis</NavLink>
             </li>
-            <li>
+            <li onClick={() => setOpened(!opened)}>
               <NavLink to={'/towns'}>Miestai</NavLink>
             </li>
 
             {isUserLoggedIn && (
-              <li>
-                <NavLink to={'/listing/add'}>prideti skelbima</NavLink>
+              <li onClick={() => setOpened(!opened)}>
+                <NavLink to={'/listing/add'}>Prideti skelbima</NavLink>
               </li>
             )}
 
             {!isUserLoggedIn && (
-              <li>
-                <NavLink to={'/login'}>prisijungti</NavLink>
+              <li onClick={() => setOpened(!opened)}>
+                <NavLink to={'/login'}>Prisijungti</NavLink>
               </li>
             )}
             {!isUserLoggedIn && (
-              <li>
-                <NavLink to={'/register'}>registruotis</NavLink>
+              <li onClick={() => setOpened(!opened)}>
+                <NavLink to={'/register'}>Registruotis</NavLink>
               </li>
             )}
 
             {isUserLoggedIn ? (
-              <li>
-                <NavLink to={'/user'}>mano paskyra</NavLink>
+              <li onClick={() => setOpened(!opened)}>
+                <NavLink to={'/user'}>Mano paskyra</NavLink>
               </li>
             ) : (
               ''
             )}
             {isUserLoggedIn ? (
-              <li>
-                <button onClick={logout}>atsijungti</button>
+              <li onClick={() => setOpened(!opened)}>
+                <button onClick={logout}>Atsijungti</button>
               </li>
             ) : (
               ''

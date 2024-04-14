@@ -24,7 +24,7 @@ export default function TownsPage() {
   return (
     <div className='container'>
       <h3 className='text-2xl'>Miestai</h3>
-      <ul className='grid grid-cols-3 gap-3'>
+      <ul className='grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 '>
         {townsArr.map((town: TownObjType) => (
           <li key={town.id}>
             <SingleTownDiv item={town} />
