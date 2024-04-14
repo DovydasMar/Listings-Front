@@ -45,7 +45,11 @@ export default function Register() {
   return (
     <div className='container'>
       <h3 className='text-2xl'>Sukurti naują vartotoją</h3>
-      <form noValidate onSubmit={formik.handleSubmit} className='grid grid-cols-2 gap-4'>
+      <form
+        noValidate
+        onSubmit={formik.handleSubmit}
+        className='grid grid-cols-1 md:grid-cols-2 gap-4'
+      >
         <InputEl name='Jūsų vardas' formik={formik} id='name' placeholder='vardas' />
         <InputEl name='Jūsų Email' formik={formik} id='email' placeholder='jane@doe.lt' />
         <InputEl
@@ -69,7 +73,7 @@ export default function Register() {
           placeholder='Profilio nuotraukos Url'
         />
         <div></div>
-        <Button className='col-span-2' type='submit'>
+        <Button className='md:col-span-2' type='submit'>
           Registruotis
         </Button>
       </form>

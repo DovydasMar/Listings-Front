@@ -39,7 +39,11 @@ export default function Login() {
   return (
     <div className='container'>
       <h2 className='text-2xl mt-2'>Prisijungti</h2>
-      <form noValidate onSubmit={formik.handleSubmit} className={'grid grid-cols-2 mt-2 gap-3 '}>
+      <form
+        noValidate
+        onSubmit={formik.handleSubmit}
+        className={'grid grid-cols-1 md:grid-cols-2  mt-2 gap-3 '}
+      >
         <InputEl
           name='Jūsų el. paštas'
           type='email'
@@ -55,7 +59,7 @@ export default function Login() {
           placeholder='įveskite slaptažodį'
         />
         {error && <span className='bg-red-300 block rounded-1 px-3 py-1 '>{error}</span>}
-        <Button className='col-span-2' type='submit'>
+        <Button className='md:col-span-2' type='submit'>
           prisijungiti
         </Button>
       </form>

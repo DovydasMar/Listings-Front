@@ -95,7 +95,7 @@ export default function AddNewAdPage() {
   const typeError = formik.errors.type && formik.touched.type;
   return (
     <div className='container'>
-      <h3 className='text-2xl'>Create a new Listing</h3>
+      <h3 className='text-2xl'>Sukurti naują skelbimą</h3>
       <form onSubmit={formik.handleSubmit} noValidate className='grid grid-cols-2 gap-4'>
         <InputEl name='įveskite pavadinimą' formik={formik} id='title' placeholder='Enter title' />
         <InputEl
@@ -145,7 +145,7 @@ export default function AddNewAdPage() {
 
         {typeError && <div className='error'>{error}</div>}
         <Button className='col-span-2' type='submit'>
-          Add new listing
+          Pridėti skelbimą
         </Button>
       </form>
     </div>

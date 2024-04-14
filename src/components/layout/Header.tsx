@@ -57,7 +57,7 @@ export default function Header() {
       </div>
       <div className='h-full justify-between items-center container small-header-sizing'>
         <Link to={'/'}>
-          <h6 className='text-2xl text-[#EEE6DE]'>logo</h6>
+          <img className='w-20' src='/img/logotipas.png' alt='skelbimų pasaulis' />
         </Link>
         {email ? <h5 className='text-xl text-[#EEE6DE]'>{email}</h5> : ''}
         <button onClick={() => setOpened(!opened)}>
