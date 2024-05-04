@@ -4,5 +4,5 @@ type CategoriesProps = {
   item: CategoryObjType;
 };
 export default function Categories({ item }: CategoriesProps) {
-  return <li className=''>{item.name}</li>;
+  return <li className=''>categorija</li>;
 }
